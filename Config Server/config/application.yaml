@@ -1,0 +1,9 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  datasource:
+    password: MYSQL_ROOT_PASSWORD
+    url: jdbc:mysql://localhost/application
+    username: root
