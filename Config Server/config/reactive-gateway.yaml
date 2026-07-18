@@ -1,12 +1,24 @@
-logging:
-  level:
-    "[org.springframework.cloud.gateway]": TRACE
 spring:
   cloud:
     gateway:
       server:
         webflux:
+          default-filters:
+            - TokenRelay=oidc-client
           discovery:
             locator:
               enabled: true
               lower-case-service-id: true
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc-client:
+            issuer-uri: http://localhost:9000
+        registration:
+          oidc-client:
+            authorization-grant-type: authorization_code
+            client-id: oidc-client
+            client-secret: secret
+            provider: oidc-client
+            scope: openid,profile

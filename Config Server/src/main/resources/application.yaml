@@ -3,5 +3,11 @@ server:
 spring:
   application:
     name: application
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - file:./config
   profiles:
     active: native
